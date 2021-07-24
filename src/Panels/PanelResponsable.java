@@ -9,6 +9,7 @@ import Panels.PanelPrincipal;
 import Controladores.Controlador;
 import java.util.*;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import modelos.Estado;
 import modelos.Item;
 
@@ -19,7 +20,7 @@ import modelos.Item;
 public class PanelResponsable extends PanelPrincipal {
     private Controlador controler;
     private DefaultListModel modelo = new DefaultListModel();
-    private Item item_selec;
+    private Item item_default;
     
     public PanelResponsable(Controlador controler) {
         initComponents();
@@ -31,34 +32,38 @@ public class PanelResponsable extends PanelPrincipal {
         items.forEach(i -> {
             jComboBox1.addItem(i.getNombre());
         });
-        this.item_selec=this.controler.getItem((String)jComboBox1.getSelectedItem());
-        label1.setText(item_selec.getNombre());
-        label2.setText(item_selec.getTipo());
-        label3.setText(item_selec.getFecha());
-        label5.setText(item_selec.getEstadoActual());
+        this.item_default=this.controler.getItem((String)jComboBox1.getSelectedItem());
+        label1.setText(item_default.getNombre());
+        label2.setText(item_default.getTipo().getNombre());
+        label3.setText(item_default.getFecha());
+        label5.setText(item_default.getEstadoActual().getNombre());
         
         //Lista de secuencia de estados pasados
         
-        ArrayList<Estado> historial = item_selec.getHistorial();
+        ArrayList<Estado> historial = item_default.getHistorial();
         historial.forEach((hist) -> {
             modelo.addElement(hist.getNombre());
         });
         this.jList2.setModel(modelo);
     }
-    public void actualizarItems(Item item){
-        if(item.getResponsable().equals(this.controler.getUserLogged())){
-            jComboBox1.addItem(item.getNombre());
-        }
+    
+    
+    
+    public void actualizarInfoItems(Item item){
+       this.item_default=this.controler.getItem((String)jComboBox1.getSelectedItem());
+        label1.setText(item_default.getNombre());
+        label2.setText(item_default.getTipo().getNombre());
+        label3.setText(item_default.getFecha());
+        label5.setText(item_default.getEstadoActual().getNombre());
+        
+        modelo.clear();
+        ArrayList<Estado> historial = item_default.getHistorial();
+        historial.forEach((hist) -> {
+            modelo.addElement(hist.getNombre());
+        });
+        this.jList2.setModel(modelo);
         
     }
-    public void actualizarEstados(Item item){
-        ArrayList<Estado> historial = item.getHistorial();
-        historial.forEach((hist) -> {
-            modelo.addElement(hist.getNombre());
-        });
-        this.jList2.setModel(modelo);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -281,17 +286,25 @@ public class PanelResponsable extends PanelPrincipal {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        this.actualizarInfoItems(this.item_default);        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        this.controler.DesloggearUsuario();
+        Login login = new Login(this.controler);
+        login.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CambiarEstado cambiar_estado = new CambiarEstado(this.controler,this,this.item_selec);
-        cambiar_estado.setVisible(true);
-        dispose();
+        try{
+            CambiarEstado cambiar_estado = new CambiarEstado(this.controler,this,this.item_default);
+            cambiar_estado.setVisible(true);
+            dispose();
+        }catch (NullPointerException npe){
+            JOptionPane.showMessageDialog(this,"Ultimo estado del item");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -14,7 +14,6 @@ import modelos.Item;
  */
 public abstract class PanelPrincipal extends JFrame{
     
-    public abstract void actualizarItems(Item item);
-    public abstract void actualizarEstados(Item item);
+    public abstract void actualizarInfoItems(Item item);
     
 }

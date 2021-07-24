@@ -248,7 +248,7 @@ public class CrearItem extends JFrame {
         if(!nombre.equals("")){
                 if(!tipo.equals("")){
                     if(!responsable.equals("")){
-                        this.callback.actualizarItems(this.controler.crearItem(nombre,tipo,prior,responsable));
+                        this.callback.actualizarInfoItems(this.controler.crearItem(nombre,tipo,prior,responsable));
                         cargado=true;
                     }else{
                         JOptionPane.showMessageDialog(this,"Debe llenar todos los campos");

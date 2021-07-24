@@ -3,16 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/Panels/CambiarEstado.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/Controladores/Controlador.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/Panels/PanelResponsable.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/Panels/PanelLider.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/Panels/CrearItem.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/modelos/Item.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/Panels/PanelPrincipal.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/modelos/TipoItem.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/modelos/Estado.java</file>
-            <file>file:/home/agus/Documentos/proyectos/NetBeansProjects/SistemaItems/src/modelos/Usuario.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/Panels/CreatTipoItem.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/modelos/Item.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/modelos/Estado.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/Controladores/Controlador.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/Panels/PanelResponsable.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/modelos/Usuario.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/modelos/Proyecto.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/Panels/CambiarEstado.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/Panels/PanelLider.java</file>
+            <file>file:/home/agus/Documentos/proyectos/sistemaItems/src/modelos/TipoItem.java</file>
         </group>
     </open-files>
 </project-private>

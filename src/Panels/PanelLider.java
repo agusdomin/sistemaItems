@@ -35,13 +35,13 @@ public class PanelLider extends PanelPrincipal{
         });
         Item item_default=this.controler.getItem((String)jComboBox1.getSelectedItem());
         label1.setText(item_default.getNombre());
-        label2.setText(item_default.getTipo());
+        label2.setText(item_default.getTipo().getNombre());
         label3.setText(item_default.getFecha());
         label4.setText(item_default.getResponsable());
-        label5.setText(item_default.getEstadoActual());
+        label5.setText(item_default.getEstadoActual().getNombre());
         
         //Lista de secuencia de estados pasados
-        
+        modelo.clear();
         ArrayList<Estado> historial = item_default.getHistorial();
         historial.forEach((hist) -> {
             modelo.addElement(hist.getNombre());
@@ -50,11 +50,10 @@ public class PanelLider extends PanelPrincipal{
         
     
     }
-    public void actualizarItems(Item item){
+    public void actualizarInfoItems(Item item){
         jComboBox1.addItem(item.getNombre());
     }
-     public void actualizarEstados(Item item){
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -327,8 +326,8 @@ public class PanelLider extends PanelPrincipal{
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        controler.DesloggearUsuario();
-        Login login = new Login(controler);
+        this.controler.DesloggearUsuario();
+        Login login = new Login(this.controler);
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -344,9 +343,17 @@ public class PanelLider extends PanelPrincipal{
         //cuando se selecciona un item en el box, cambian los labels
         Item item_default=this.controler.getItem((String)jComboBox1.getSelectedItem());
         label1.setText(item_default.getNombre());
-        label2.setText(item_default.getTipo());
+        label2.setText(item_default.getTipo().getNombre());
         label3.setText(item_default.getFecha());
         label4.setText(item_default.getResponsable());
+        label5.setText(item_default.getEstadoActual().getNombre());
+        
+        modelo.clear();
+        ArrayList<Estado> historial = item_default.getHistorial();
+        historial.forEach((hist) -> {
+            modelo.addElement(hist.getNombre());
+        });
+        this.jList2.setModel(modelo);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

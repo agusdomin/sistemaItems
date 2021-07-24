@@ -35,14 +35,14 @@ public class Controlador {
         usuarios.add(usr1);
         usuarios.add(usr2);
         
-        Estado est0= new Estado("Creado");
+        
         Estado est1= new Estado("Desarrollo");
         Estado est2= new Estado("Validcaion");
         Estado est3= new Estado("Terminado");
         
-        TipoItem tipo1= new TipoItem("reporte de bug",est0);
-        TipoItem tipo2= new TipoItem("error",est0);
-        TipoItem tipo3= new TipoItem("validacion",est0);
+        TipoItem tipo1= new TipoItem("reporte de bug",new Estado("Creado"));
+        TipoItem tipo2= new TipoItem("error",new Estado("Creado"));
+        TipoItem tipo3= new TipoItem("validacion",new Estado("Creado"));
         
         tipo1.addEstado(est1);
         tipo1.addEstado(est2);
@@ -62,9 +62,53 @@ public class Controlador {
         
     }
     
+    //Devuelve la instancia del estado brindado en forma de String
+    public Estado getEstado(String e,TipoItem t){
+        ArrayList<Estado> estados=t.getSecuencia();
+        for(Estado estado: estados){
+            if(e==estado.getNombre()){
+                System.out.println("encontrado");
+                return estado;
+            }
+        }
+        return null;
+    }
+    
+    public ArrayList<Estado> getSiguientesEstados(Item item){
+        ArrayList<Estado> estados= new ArrayList<>();        
+        
+        if(((item.getTipo().getSiguiente(    item.getEstadoActual()  ))!=null)||(item.getEstadoActual().getEstadosSig()!=null)){
+            //obtengo el siguiente estado lineal de la secuencia del item que se esta trabajando
+            estados.add((   item.getTipo().getSiguiente(    item.getEstadoActual()  ) ));    
+            //obtengo los estados que implican volver a estados anteriores
+            estados.addAll( item.getEstadoActual().getEstadosSig() );
+            return estados;
+        }
+        return null;
+    }
+    
+    
+    
+    public void crearTipo(String nombre, ArrayList<Estado> estados){
+        TipoItem nuevo_tipo= new TipoItem(nombre, new Estado("Creado"));
+        for(Estado e: estados){
+            nuevo_tipo.addEstado(e);
+        }
+        tipos.add(nuevo_tipo);
+    }
+    
+    public TipoItem getTipo(String nombre){
+        for(TipoItem tipo: tipos){
+            if(tipo.getNombre().equals(nombre)){
+                return tipo;
+            }
+        }
+        return null;
+    }
     public ArrayList getTiposItem(){
         return tipos;
     }
+    
     public String getResponsable(Item item){
         return item.getResponsable();
     }
@@ -107,6 +151,7 @@ public class Controlador {
         return nuevo_item;
         
     }
+    
     
     
     //Retorna todos los items existentes

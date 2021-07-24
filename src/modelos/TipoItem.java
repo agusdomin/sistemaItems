@@ -27,6 +27,28 @@ public class TipoItem {
         this.secuencia.add(estado);
     }
     
+    //permite a travez del tipo item, establecer otra posible ruta de un estado a otro estado ya existente en la secuencia
+    public void setRollback(String seleccionado, Estado estado_sig){
+        for(Estado estado:this.secuencia){
+            if(estado.getNombre().equals(seleccionado)){
+                System.out.println("añadido");
+                estado.addEstadoSig(estado_sig);
+            }
+        }
+        
+    }
+    
+    //Retorna el siguiente estado lineal por defecto en la secuencia
+    public Estado getSiguiente(Estado estado){
+        
+            for(int i=0;i<this.secuencia.size()-1;i++){
+                if(this.secuencia.get(i)==estado){   
+                    return this.secuencia.get(i+1);
+                }
+            }
+            
+        return null;
+    }
     public ArrayList getSecuencia(){
         return this.secuencia;
     }

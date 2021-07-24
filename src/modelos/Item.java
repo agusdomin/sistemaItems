@@ -43,8 +43,8 @@ public class Item {
         return nombre;
     }
             
-    public String getTipo(){
-        return tipo.getNombre();
+    public TipoItem getTipo(){
+        return this.tipo;
     }
     
     public String getResponsable(){
@@ -65,16 +65,17 @@ public class Item {
         return fecha;
     }
     
-    public String getEstadoActual(){
-        return this.estado_actual.getNombre();
+    public Estado getEstadoActual(){
+        return this.estado_actual;
     }
     
     public void setEstadoActual(){
         this.estado_actual= this.secuencia_pasada.get(this.secuencia_pasada.size());
     }
     
-    public void pasarEstado(){
+    public void pasarEstado(Estado sig_estado){
         this.addHistorial(estado_actual);
+        this.estado_actual=sig_estado;
        
         //consultar el proximo estado posible
         //setear ese estado como el actual

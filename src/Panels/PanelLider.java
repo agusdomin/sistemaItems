@@ -83,7 +83,6 @@ public class PanelLider extends PanelPrincipal{
         label5 = new javax.swing.JLabel();
         label4 = new javax.swing.JLabel();
         label3 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,13 +162,6 @@ public class PanelLider extends PanelPrincipal{
         label3.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         label3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton4.setText("jButton4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -188,10 +180,7 @@ public class PanelLider extends PanelPrincipal{
                             .addComponent(jButton1)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
-                                .addComponent(jButton2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jButton4)))
+                                .addComponent(jButton2)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -265,17 +254,12 @@ public class PanelLider extends PanelPrincipal{
                     .addComponent(label5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6))
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton4)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6))
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(20, 20, 20))
         );
 
@@ -356,22 +340,12 @@ public class PanelLider extends PanelPrincipal{
         this.jList2.setModel(modelo);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        ArrayList<Item> its = this.controler.getItems();
-        
-        for(Item i: its){
-            System.out.println(i.getNombre());
-        }
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

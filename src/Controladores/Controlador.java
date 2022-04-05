@@ -30,7 +30,7 @@ public class Controlador {
         equipos.add(eq1);
         
         Usuario usr1=new Usuario("agustin","lider",eq1);
-        Usuario usr2=new Usuario("sebastian","responsable",eq1);
+        Usuario usr2=new Usuario("sofia","responsable",eq1);
         
         usuarios.add(usr1);
         usuarios.add(usr2);
@@ -47,6 +47,14 @@ public class Controlador {
         tipo1.addEstado(est1);
         tipo1.addEstado(est2);
         tipo1.addEstado(est3);
+        
+        tipo2.addEstado(est1);
+        tipo2.addEstado(est2);
+        tipo2.addEstado(est3);
+        
+        tipo3.addEstado(est1);
+        tipo3.addEstado(est2);
+        tipo3.addEstado(est3);
         
         tipos.add(tipo1);
         tipos.add(tipo2);

@@ -1,0 +1,8 @@
+
+build/*
+Sistema-items.*
+built-jar
+build*
+manifest.mf
+test/*
+nbproject/*
